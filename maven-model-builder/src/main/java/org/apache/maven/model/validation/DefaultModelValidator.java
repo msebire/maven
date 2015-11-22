@@ -594,7 +594,13 @@ public class DefaultModelValidator
                      * order to don't break backward-compat with those, only warn but don't error out.
                      */
                     validateEnum( prefix + "scope", problems, Severity.WARNING, Version.V20, d.getScope(),
-                                  d.getManagementKey(), d, "provided", "compile", "runtime", "test", "system" );
+                                  d.getManagementKey(), d,
+                                  // standard maven scope
+                                  "provided", "compile", "runtime", "test", "system",
+                                  // FLEXMOJOS-363
+                                  // added flexmojos scopes, according to https://docs.sonatype.org/display/FLEXMOJOS/Adding+libraries+to+compilation
+                                  "merged", "internal", "external", "rsl", "caching", "theme"
+                                  );
 
                     validateEffectiveModelAgainstDependency( prefix, problems, m, d, request );
                 }
