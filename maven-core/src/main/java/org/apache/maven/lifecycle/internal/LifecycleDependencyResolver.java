@@ -253,7 +253,7 @@ public class LifecycleDependencyResolver
     private Collection<String> negate( Collection<String> scopes )
     {
         Collection<String> result = new HashSet<String>();
-        Collections.addAll( result, "system", "compile", "provided", "runtime", "test" );
+        Collections.addAll( result, "system", "compile", "provided", "runtime", "test", "internal", "external" );
 
         for ( String scope : scopes )
         {
